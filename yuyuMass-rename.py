@@ -1,8 +1,10 @@
 import os
 import sys
+
 import pyperclip
-from mass_rename_design import Ui_MainWindow
 from PyQt5 import QtWidgets
+
+from mass_rename_design import Ui_MainWindow
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
