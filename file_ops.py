@@ -82,7 +82,10 @@ class FileOperations:
         """
         for new_genre in new_genres:
             new_genre_path = os.path.join(self.genre_path, new_genre.lstrip())
-            os.mkdir(new_genre_path)
+            try:
+                os.mkdir(new_genre_path)
+            except FileExistsError:
+                pass
             print(new_genre.lstrip())
             self.create_symlinks(genre_name=new_genre.lstrip(), current_title=current_title)
 

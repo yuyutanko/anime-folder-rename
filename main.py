@@ -123,8 +123,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def clear_boxes(self):
         """Нужен для снятия всех галочек, при переходе на другой тайтл."""
-        for box in self.checkboxes():
-            box.setChecked(False)
+        for cb in self.checkboxes():
+            cb.setChecked(False)
 
     def write_changes(self):
         """
@@ -133,22 +133,22 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         Создадутся директории для новых жанром и туда сразу же запишутся симлинки.
         По окончании, выделение списка переключится на следующую строку.
         """
-        # TODO: Надо исправить ошибку, при которой симлинк создается некорректно,
-        #  если предполагается изменение названия директории.
         row = self.listWidget.currentRow()
         current_title = self.file_ops.input_path_folders[row]
-        for box in self.checkboxes():
-            if box.isChecked():
-                genre_name = box.text()
+        for cb in self.checkboxes():
+            if cb.isChecked():
+                genre_name = cb.text()
                 self.file_ops.create_symlinks(genre_name, current_title)
         if self.led_new_name.text():
             self.file_ops.change_name(current_title, self.led_new_name.text())
+            current_title = self.led_new_name.text()
             self.scan()
             self.led_new_name.clear()
         if self.led_new_genres.text():
             new_genres_list = self.led_new_genres.text().split(',')
             self.file_ops.create_new_genres_dir(new_genres_list, current_title)
             self.scan()
+            self.led_new_genres.clear()
         self.listWidget.setCurrentRow(row + 1)
 
 
