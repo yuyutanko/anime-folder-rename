@@ -17,6 +17,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             cb.hide()
         # Vars
         self.file_ops = None
+        self.ch_bxs = list()
         # Buttons connects
         self.btn_main_dir_path_browse.clicked.connect(self.browse)
         self.btn_main_dir_scan.clicked.connect(self.scan)
@@ -27,48 +28,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.listWidget.clear()
 
     def checkboxes(self):
-        return [
-            self.cb_genre_1,
-            self.cb_genre_2,
-            self.cb_genre_3,
-            self.cb_genre_4,
-            self.cb_genre_5,
-            self.cb_genre_6,
-            self.cb_genre_7,
-            self.cb_genre_8,
-            self.cb_genre_9,
-            self.cb_genre_10,
-            self.cb_genre_11,
-            self.cb_genre_12,
-            self.cb_genre_13,
-            self.cb_genre_14,
-            self.cb_genre_15,
-            self.cb_genre_16,
-            self.cb_genre_17,
-            self.cb_genre_18,
-            self.cb_genre_19,
-            self.cb_genre_20,
-            self.cb_genre_21,
-            self.cb_genre_22,
-            self.cb_genre_23,
-            self.cb_genre_24,
-            self.cb_genre_25,
-            self.cb_genre_26,
-            self.cb_genre_27,
-            self.cb_genre_28,
-            self.cb_genre_29,
-            self.cb_genre_30,
-            self.cb_genre_31,
-            self.cb_genre_32,
-            self.cb_genre_33,
-            self.cb_genre_34,
-            self.cb_genre_35,
-            self.cb_genre_36,
-            self.cb_genre_37,
-            self.cb_genre_38,
-            self.cb_genre_39,
-            self.cb_genre_40,
-        ]
+        return self.ch_bxs
 
     def browse(self):
         """
