@@ -59,11 +59,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def show_genres(self):
         """Раскрывает чекбоксы в соответствии найденным жанрам"""
-        i = 0
-        for genre in self.file_ops.get_genres():
-            self.checkboxes()[i].show()
-            self.checkboxes()[i].setText(genre)
-            i += 1
+        for index, genre in enumerate(self.file_ops.get_genres()):
+            self.checkboxes()[index].show()
+            self.checkboxes()[index].setText(genre)
+            print((self.checkboxes()[index].pos().__pos__()))
 
     def anime_title_info(self):
         """
